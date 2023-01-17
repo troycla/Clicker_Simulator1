@@ -48,14 +48,14 @@ function save() {
   localStorage.setItem("Petdogcost", Petdogcost);
   localStorage.setItem("Petdogadd", Petdogadd);
   localStorage.setItem("Petcatown", Petcatown);
-  localStorage.setItem("workerown", workerown);
+  localStorage.setItem("Petdogown", workerown);
   localStorage.setItem("upown", upown);
   localStorage.setItem("Petcatadd", Petcatadd);
   localStorage.setItem("Petdogadd", Petdogadd);
   localStorage.setItem("cboost", cboost);
   localStorage.setItem("wboost", wboost);
-  localStorage.setItem("catmax", catmax);
-  localStorage.setItem("dogmax", workmax);
+  localStorage.setItem("Petcatmax", catmax);
+  localStorage.setItem("Petdogmax", workmax);
 }
 //loads save file
 function load() {
@@ -66,16 +66,16 @@ function load() {
   catcost = parseInt(localStorage.getItem("Petcatcost"));
   upown = parseInt(localStorage.getItem("Petcatadd"));
   workercost = parseInt(localStorage.getItem("Petdogcost"));
-  upown = parseInt(localStorage.getItem("workadd"));
+  upown = parseInt(localStorage.getItem("Petdogadd"));
   catown = parseInt(localStorage.getItem("Petcatown"));
-  workerown = parseInt(localStorage.getItem("workerown"));
+  workerown = parseInt(localStorage.getItem("Petdohown"));
   upown = parseInt(localStorage.getItem("upown"));
-  catadd = parseInt(localStorage.getItem("catadd"));
-  workadd = parseInt(localStorage.getItem("workadd"));
+  catadd = parseInt(localStorage.getItem("Petcatadd"));
+  workadd = parseInt(localStorage.getItem("Petadd"));
   cboost = parseInt(localStorage.getItem("cboost"));
   wboost = parseInt(localStorage.getItem("wboost"));
-  catmax = parseInt(localStorage.getItem("catmax"));
-  workmax = parseInt(localStorage.getItem("workmax"));
+  catmax = parseInt(localStorage.getItem("Petcatmax"));
+  workmax = parseInt(localStorage.getItem("Petdogmax"));
 
   reloadall();
 }
@@ -86,13 +86,13 @@ function reset() {
     moneyup = 1;
     msec = 0;
     upcost = 15;
-    catcost = 25;
-    workercost = 250;
-    catown = 0;
-    workerown = 0;
+    Petcatcost = 25;
+    Petdogcost = 250;
+    Petcatown = 0;
+    Petdogown = 0;
     upown = 0;
-    catadd = 1;
-    workadd = 15;
+    Petcatadd = 1;
+    Petdogadd = 15;
     reloadall();
   }
 }
@@ -110,89 +110,89 @@ function clicked() {
 }
 //upgrade function
 function upgrade(name) {
-  if (name == "clicker cat") {
-    if (money >= catcost && catown < 50) {
+  if (name == "Petcat") {
+    if (money >= Petcatcost && Petcatown < 50) {
       
       if (catown <= 13) {
-        msec += catadd;
+        msec += Petcatadd;
         catadd++;
         cboost = 1;
-      } else if (catown == 14) {
-        msec += catadd;
-        catadd++;
+      } else if (Petcatown == 14) {
+        msec += Petcatadd;
+        Petcatadd++;
         cboost = 200;
-      } else if (catown <= 23) {
-        msec += 200 * catadd;
-        catadd++;
+      } else if (Petcatown <= 23) {
+        msec += 200 * Petcatadd;
+        Petcatadd++;
         cboost = 200;
-      } else if (catown == 24) {
-        msec += 200 * catadd;
-        catadd++;
+      } else if (Petcatown == 24) {
+        msec += 200 * Petcatadd;
+        Petcatadd++;
         cboost = 5000;
-      } else if (catown <= 48) {
-        msec += 5000 * catadd;
-        catadd++;
+      } else if (Petcatown <= 48) {
+        msec += 5000 * Petcatadd;
+        Petcatadd++;
         cboost = 5000;
-      } else if (catown == 49) {
-        msec += 5000 * catadd;
-        catadd++;
+      } else if (Petcatown == 49) {
+        msec += 5000 * Petcatadd;
+        Petcatadd++;
         cboost = 15000;
       } else {
-        msec += 15000 * catadd;
-        catadd++;
+        msec += 15000 * Petcatadd;
+        Petcatadd++;
         cboost = 15000;
       }
-      catown += 1;
-      money -= catcost;
-      catcost = catcost * 2;
+      Petcatown += 1;
+      money -= Petcatcost;
+      Percatcost = Petcatcost * 2;
       document.getElementById("cat").innerHTML =
-        catown + "-clicker cat: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
+        Petcatown + "-Petcat: " + addcomma(Petcatcost) + " | +" + addcomma(Petcatadd * cboost) + "/sec";
     } else if (catown == 50) {
       document.getElementById("cat").innerHTML =
         catown + "-clicker cat: MAX | +15% click/sec";
     }
   }
 
-  if (name == "worker") {
-    if (money >= workercost && workerown < 50) {
+  if (name == "Petdog") {
+    if (money >= Petdogcost && Petdogown < 50) {
       
-      if (workerown <= 13) {
-        msec += workadd;
-        workadd++;
+      if (Petdogown <= 13) {
+        msec += Petdogadd;
+        Petdogadd++;
         wboost = 1;
-      } else if (workerown == 14) {
-        msec += workadd;
-        workadd++;
+      } else if (Petdogown == 14) {
+        msec += Petdogadd;
+        Petdogadd++;
         wboost = 200;
-      } else if (workerown <= 23) {
-        msec += 200 * workadd;
-        workadd++;
+      } else if (Petdogown <= 23) {
+        msec += 200 * Petdogadd;
+        Petdogadd++;
         wboost = 200;
-      } else if (workerown == 24) {
-        msec += 200 * workadd;
-        workadd++;
+      } else if (Petdogown == 24) {
+        msec += 200 * Petdogadd;
+        Petdogadd++;
         wboost = 5000;
-      } else if (workerown <= 48) {
-        msec += 5000 * workadd;
-        workadd++;
+      } else if (Petdogown <= 48) {
+        msec += 5000 * Petdogadd;
+        Petdogadd++;
         wboost = 5000;
-      } else if (workerown == 49) {
-        msec += 5000 * workadd;
-        workadd++;
+      } else if (Petdogown == 49) {
+        msec += 5000 * Petdogadd;
+        Petdogadd++;
         wboost = 15000;
       } else {
-        msec += 15000 * workadd;
-        workadd++;
+        msec += 15000 * Petdogadd;
+        Petdogadd++;
         wboost = 15000;
       }
-      workerown += 1;
-      money -= workercost;
+      Petdogown += 1;
+      money -= Petdogcost;
       workercost = workercost * 3;
-      document.getElementById("worker").innerHTML = 
-        workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
-    } else if (workerown == 50) {
-      document.getElementById("worker").innerHTML =
-        workerown + "-worker: MAX | +35% click/sec";
+      document.getElementById("Petdog").innerHTML = 
+        Petdogown + "-Petdog: " + addcomma(Petdogcost) + " | +" + addcomma(Petdogadd * wboost) + "/sec";
+    } else if (own == 50) {
+      document.getElementById("Petdog").innerHTML =
+        workerown + "-Petdog: MAX | +35% click/sec";
     }
   }
 
