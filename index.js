@@ -2,17 +2,17 @@ money = 0;
 moneyup = 1;
 msec = 0;
 upcost = 15;
-catcost = 25;
-workercost = 250;
+Petcatcost = 25;
+Petdogcost = 250;
 upown = 0;
-catown = 0;
-workerown = 0;
-catadd = 1;
-workadd = 15;
+Petcatown = 0;
+Petdogown = 0;
+Petcatadd = 1;
+Petdogadd = 15;
 cboost = 1;
 wboost = 1;
-catmax = 0;
-workmax = 0;
+Petcatmax = 0;
+Petdogmax = 0;
 
 //save before exiting
 function closingCode() {
@@ -28,7 +28,7 @@ function addcomma(x) {
 //updates all values
 function reloadall() {
   document.getElementById("click").innerHTML =
-    "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
+    "LB/click: " + addcomma(moneyup) + " | Clicks/sec: " + addcomma(msec);
   document.getElementById("total").innerHTML = "clicks: " + addcomma(money);
   document.getElementById("cat").innerHTML =
     catown + "-clicker cat: " + addcomma(catcost) + " | +" + addcomma(catadd) + "/sec";
@@ -43,19 +43,19 @@ function save() {
   localStorage.setItem("moneyup", moneyup);
   localStorage.setItem("msec", msec);
   localStorage.setItem("upcost", upcost);
-  localStorage.setItem("catcost", catcost);
-  localStorage.setItem("catadd", catadd);
-  localStorage.setItem("workercost", workercost);
-  localStorage.setItem("workadd", workadd);
-  localStorage.setItem("catown", catown);
+  localStorage.setItem("Petcatcost", Petcatcost);
+  localStorage.setItem("Petcatadd", Petcatadd);
+  localStorage.setItem("Petdogcost", Petdogcost);
+  localStorage.setItem("Petdogadd", Petdogadd);
+  localStorage.setItem("Petcatown", Petcatown);
   localStorage.setItem("workerown", workerown);
   localStorage.setItem("upown", upown);
-  localStorage.setItem("catadd", catadd);
-  localStorage.setItem("workadd", workadd);
+  localStorage.setItem("Petcatadd", Petcatadd);
+  localStorage.setItem("Petdogadd", Petdogadd);
   localStorage.setItem("cboost", cboost);
   localStorage.setItem("wboost", wboost);
   localStorage.setItem("catmax", catmax);
-  localStorage.setItem("workmax", workmax);
+  localStorage.setItem("dogmax", workmax);
 }
 //loads save file
 function load() {
@@ -63,11 +63,11 @@ function load() {
   moneyup = parseInt(localStorage.getItem("moneyup"));
   msec = parseInt(localStorage.getItem("msec"));
   upcost = parseInt(localStorage.getItem("upcost"));
-  catcost = parseInt(localStorage.getItem("catcost"));
-  upown = parseInt(localStorage.getItem("catadd"));
-  workercost = parseInt(localStorage.getItem("workercost"));
+  catcost = parseInt(localStorage.getItem("Petcatcost"));
+  upown = parseInt(localStorage.getItem("Petcatadd"));
+  workercost = parseInt(localStorage.getItem("Petdogcost"));
   upown = parseInt(localStorage.getItem("workadd"));
-  catown = parseInt(localStorage.getItem("catown"));
+  catown = parseInt(localStorage.getItem("Petcatown"));
   workerown = parseInt(localStorage.getItem("workerown"));
   upown = parseInt(localStorage.getItem("upown"));
   catadd = parseInt(localStorage.getItem("catadd"));
